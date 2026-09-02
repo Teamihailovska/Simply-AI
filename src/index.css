@@ -1,0 +1,209 @@
+/* stylelint-disable */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SimplyAI Design System — Blueprint × Dark Navy × Orange */
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500&display=swap');
+
+@layer base {
+  :root {
+    --radius: 0.125rem;
+
+    /* SimplyAI Brand: Deep Navy + Orange */
+    --background: 218 45% 7%;         /* #0A0F1E deep navy */
+    --foreground: 210 20% 92%;        /* #E8EBF0 light neutral */
+    --card: 218 40% 10%;              /* #0D1528 card navy */
+    --card-foreground: 210 20% 92%;
+    --popover: 218 40% 10%;
+    --popover-foreground: 210 20% 92%;
+
+    /* Primary = SimplyAI Orange #F5A623 */
+    --primary: 37 90% 55%;
+    --primary-foreground: 218 45% 7%;
+
+    /* Secondary = mid navy */
+    --secondary: 218 40% 16%;
+    --secondary-foreground: 210 20% 88%;
+
+    /* Muted = subtle navy */
+    --muted: 218 35% 14%;
+    --muted-foreground: 218 20% 55%;
+
+    /* Accent = brighter orange for glow/highlights */
+    --accent: 32 95% 50%;
+    --accent-foreground: 218 45% 7%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Border = fine blueprint grid line */
+    --border: 218 30% 20%;
+    --input: 218 35% 14%;
+    --ring: 37 90% 55%;
+
+    /* Blueprint grid cyan overlay */
+    --grid-line: hsla(220, 90%, 60%, 0.08);
+    --grid-line-strong: hsla(220, 90%, 60%, 0.18);
+
+    /* Sidebar */
+    --sidebar-background: 218 45% 6%;
+    --sidebar-foreground: 210 20% 80%;
+    --sidebar-primary: 37 90% 55%;
+    --sidebar-primary-foreground: 218 45% 7%;
+    --sidebar-accent: 218 40% 14%;
+    --sidebar-accent-foreground: 210 20% 88%;
+    --sidebar-border: 218 30% 18%;
+    --sidebar-ring: 37 90% 55%;
+
+    /* Chart colors */
+    --chart-1: 37 90% 55%;
+    --chart-2: 218 60% 50%;
+    --chart-3: 200 70% 45%;
+    --chart-4: 32 95% 50%;
+    --chart-5: 220 50% 65%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(37 90% 55%), hsl(32 95% 45%));
+    --gradient-hero: linear-gradient(160deg, hsl(218 45% 7%) 0%, hsl(218 50% 12%) 50%, hsl(220 60% 10%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(218 40% 10%), hsl(218 45% 13%));
+    --gradient-background: linear-gradient(180deg, hsl(218 45% 7%), hsl(218 40% 9%));
+
+    /* Shadows */
+    --shadow-card: 0 1px 0 hsl(218 30% 20%), 0 4px 24px hsla(218 45% 4% / 0.6);
+    --shadow-hover: 0 0 0 1px hsl(37 90% 55% / 0.4), 0 8px 32px hsla(37 90% 55% / 0.12);
+    --shadow-glow: 0 0 40px hsla(37 90% 55% / 0.15), 0 0 80px hsla(37 90% 55% / 0.06);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Blueprint annotation utilities */
+@layer utilities {
+  .blueprint-grid {
+    background-image:
+      linear-gradient(var(--grid-line-strong) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line-strong) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .blueprint-corner::before,
+  .blueprint-corner::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-color: hsl(var(--primary) / 0.6);
+    border-style: solid;
+  }
+
+  .blueprint-corner::before {
+    top: 0; left: 0;
+    border-width: 1px 0 0 1px;
+  }
+
+  .blueprint-corner::after {
+    bottom: 0; right: 0;
+    border-width: 0 1px 1px 0;
+  }
+
+  .orange-text {
+    color: hsl(var(--primary));
+  }
+
+  .navy-bg {
+    background-color: hsl(218 45% 7%);
+  }
+
+  .card-navy {
+    background-color: hsl(218 40% 10%);
+    border: 1px solid hsl(var(--border));
+  }
+
+  .glow-orange {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .text-mono {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+
+  .section-label {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: hsl(var(--primary) / 0.7);
+    text-transform: uppercase;
+  }
+}
+
+/* Scroll reveal animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes draw-line {
+  from { stroke-dashoffset: 1000; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(var(--orbit-r)) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(var(--orbit-r)) rotate(-360deg); }
+}
