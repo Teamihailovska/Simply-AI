@@ -1,0 +1,244 @@
+/* ==========================================================================
+   DEMO PAGE STYLES (demo.css)
+   Scoped strictly to the /demo route to keep main page intact.
+   ========================================================================== */
+
+.demo-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #11534b 0%, #062420 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem 3rem 1rem;
+  position: relative;
+  box-sizing: border-box;
+  color: #ffffff;
+}
+
+/* Top Navigation (Back & Language Switcher) */
+.demo-back {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  color: #ffffff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.demo-back:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.demo-lang-switch {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 3px;
+  border-radius: 30px;
+  backdrop-filter: blur(8px);
+}
+
+.demo-lang-switch button {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.demo-lang-switch button.active {
+  background: #f97316;
+  color: #ffffff;
+}
+
+/* Header & Crown Icon */
+.demo-header {
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.demo-crown {
+  width: 60px;
+  height: 60px;
+  background: #f97316;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.75rem auto;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.3);
+}
+
+.demo-header h2 {
+  letter-spacing: 3px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Central White Box */
+.demo-body {
+  width: 100%;
+  max-width: 650px;
+  background: #fcfbf7;
+  border-radius: 28px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1.5rem; /* Го одвојува белиот бокс од долниот за пишување */
+  color: #1e293b;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.demo-greeting {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.demo-greeting h1 {
+  font-size: 2.5rem;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+  font-weight: 800;
+}
+
+.demo-greeting p {
+  color: #64748b;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* Chat Messages Box */
+.demo-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-height: 360px;
+  overflow-y: auto;
+  padding-right: 0.3rem;
+}
+
+.demo-message {
+  padding: 0.85rem 1.25rem;
+  border-radius: 20px;
+  max-width: 80%;
+  line-height: 1.45;
+  font-size: 0.95rem;
+}
+
+.demo-message.ai {
+  background: #f1f5f9;
+  color: #1e293b;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+.demo-message.guest {
+  background: #f97316;
+  color: #ffffff;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+/* Suggested Question Buttons */
+.demo-quick-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+
+.demo-quick-btn {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #0f172a;
+  padding: 0.65rem 1.1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.88rem;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.demo-quick-btn:hover {
+  background: #f8fafc;
+  border-color: #f97316;
+  transform: translateY(-1px);
+}
+
+/* Floating Input Box at Bottom */
+.demo-input-row {
+  width: 100%;
+  max-width: 650px;
+  background: #ffffff;
+  border-radius: 40px;
+  padding: 0.4rem 0.5rem 0.4rem 1.5rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-sizing: border-box;
+}
+
+.demo-input-row input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+  background: transparent;
+  color: #1e293b;
+  padding: 0.5rem 0;
+}
+
+.demo-input-row input::placeholder {
+  color: #94a3b8;
+}
+
+.demo-input-row button {
+  background: #f97316;
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.demo-input-row button:hover {
+  background: #ea580c;
+  transform: scale(1.02);
+}
+
+/* Footer text */
+.demo-footer {
+  margin-top: 1.5rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+}

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   ArrowRight,
   BedDouble,
@@ -58,6 +59,9 @@ const copy = {
     address: 'Sandgasse 36/IV, 8010 Graz',
     phone: '+43 681 20658347',
     footer: 'AI-Concierge by SimplyAI',
+    chatGreeting: 'Hallo! Wie kann ich Ihnen helfen?',
+    chatPlaceholder: 'Ihre Frage...',
+    quickQuestions: ['Frühstückszeiten?', 'Spa-Öffnungszeiten?', 'Zimmerservice'],
   },
   en: {
     nav: ['Benefits', 'Features', 'How it works', 'Contact'],
@@ -94,6 +98,9 @@ const copy = {
     address: 'Sandgasse 36/IV, 8010 Graz',
     phone: '+43 681 20658347',
     footer: 'AI-Concierge by SimplyAI',
+    chatGreeting: 'Hi! How can I help you today?',
+    chatPlaceholder: 'Your question...',
+    quickQuestions: ['Breakfast times?', 'Spa hours?', 'Room service'],
   },
 };
 
@@ -107,6 +114,88 @@ const features = [
   { icon: Star, de: 'Gäste-Feedback', en: 'Guest feedback', deText: 'Feedback kann automatisch und frühzeitig gesammelt werden.', enText: 'Guest feedback can be collected automatically and early.' },
   { icon: ShieldCheck, de: 'Datenschutzkonform', en: 'Privacy compliant', deText: 'Einfach einsetzbar und auf datenschutzkonformen Betrieb ausgelegt.', enText: 'Easy to deploy and designed for privacy-compliant operation.' },
 ];
+
+const botKnowledge: Record<Lang, { keywords: string[]; answer: string }[]> = {
+  de: [
+    { keywords: ['wlan', 'wifi', 'passwort', 'internet'], answer: 'Das WLAN heißt "Hotel-Guest". Das Passwort finden Sie auf Ihrer Schlüsselkarte.' },
+    { keywords: ['frühstück', 'fruhstuck', 'breakfast'], answer: 'Das Frühstück wird von 07:00–10:30 Uhr serviert. Soll ich Ihnen einen Tisch reservieren?' },
+    { keywords: ['restaurant', 'abendessen', 'essen'], answer: 'Unser Restaurant öffnet um 18:00 Uhr. Möchten Sie eine Reservierung?' },
+    { keywords: ['spa', 'wellness', 'sauna', 'pool'], answer: 'Unser Spa-Bereich ist täglich von 09:00–20:00 Uhr geöffnet. Soll ich einen Termin für Sie buchen?' },
+    { keywords: ['zimmerservice', 'room service'], answer: 'Gerne! Was möchten Sie sich aufs Zimmer bringen lassen?' },
+    { keywords: ['check-out', 'checkout', 'auschecken', 'abreise'], answer: 'Der Check-out ist bis 11:00 Uhr. Ein späterer Check-out ist auf Anfrage möglich.' },
+    { keywords: ['check-in', 'checkin', 'einchecken', 'ankunft'], answer: 'Der Check-in ist ab 15:00 Uhr möglich. Wir freuen uns auf Sie!' },
+    { keywords: ['parken', 'parkplatz', 'parking'], answer: 'Wir bieten hoteleigene Parkplätze an. Möchten Sie einen für Ihren Aufenthalt reservieren?' },
+  ],
+  en: [
+    { keywords: ['wifi', 'wlan', 'password', 'internet'], answer: 'The network is "Hotel-Guest". The password is on your key card.' },
+    { keywords: ['breakfast'], answer: 'Breakfast is served from 07:00–10:30. Would you like me to reserve a table?' },
+    { keywords: ['restaurant', 'dinner', 'food'], answer: 'Our restaurant opens at 18:00. Would you like a reservation?' },
+    { keywords: ['spa', 'wellness', 'sauna', 'pool'], answer: 'Our spa area is open daily from 09:00–20:00. Should I book you a slot?' },
+    { keywords: ['room service'], answer: 'Of course! What would you like delivered to your room?' },
+    { keywords: ['check-out', 'checkout', 'leaving'], answer: 'Check-out is until 11:00. A later check-out is available on request.' },
+    { keywords: ['check-in', 'checkin', 'arrival'], answer: 'Check-in is from 15:00. Looking forward to welcoming you!' },
+    { keywords: ['parking', 'park'], answer: 'We offer on-site parking. Would you like me to reserve a spot for your stay?' },
+  ],
+};
+
+function getBotAnswer(question: string, lang: Lang): string {
+  const q = question.toLowerCase();
+  const match = botKnowledge[lang].find((entry) => entry.keywords.some((kw) => q.includes(kw)));
+  if (match) return match.answer;
+  return lang === 'de'
+    ? 'Vielen Dank für Ihre Nachricht! Ein Mitarbeiter unseres Teams meldet sich gleich bei Ihnen.'
+    : 'Thanks for your message! A member of our team will get back to you shortly.';
+}
+
+type ChatMessage = { role: 'guest' | 'ai'; text: string };
+
+function AiConciergeChat({ lang }: { lang: Lang }) {
+  const t = copy[lang];
+  const [messages, setMessages] = useState<ChatMessage[]>([{ role: 'ai', text: t.chatGreeting }]);
+  const [input, setInput] = useState('');
+  const [typing, setTyping] = useState(false);
+
+  useEffect(() => {
+    setMessages([{ role: 'ai', text: t.chatGreeting }]);
+  }, [lang]);
+
+  function sendMessage(text: string) {
+    if (!text.trim()) return;
+    setMessages((prev) => [...prev, { role: 'guest', text }]);
+    setInput('');
+    setTyping(true);
+    setTimeout(() => {
+      setTyping(false);
+      setMessages((prev) => [...prev, { role: 'ai', text: getBotAnswer(text, lang) }]);
+    }, 900);
+  }
+
+  return (
+    <div className="phone-card">
+      <div className="phone-top"><Bot size={18} /><span>AI Concierge</span><span className="online-dot" /></div>
+      <div className="chat-space">
+        {messages.map((m, i) => (
+          <div className={`message ${m.role}`} key={i}>{m.text}</div>
+        ))}
+        {typing && <div className="typing"><i /><i /><i /></div>}
+      </div>
+      <div className="quick-row">
+        {t.quickQuestions.map((q) => (
+          <span key={q} onClick={() => sendMessage(q)} style={{ cursor: 'pointer' }}>{q}</span>
+        ))}
+      </div>
+      <form className="chat-input-row" onSubmit={(e) => { e.preventDefault(); sendMessage(input); }}>
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder={t.chatPlaceholder}
+        />
+        <button type="submit" aria-label="Send"><ArrowRight size={16} /></button>
+      </form>
+    </div>
+  );
+}
 
 function App() {
   const [lang, setLang] = useState<Lang>('de');
@@ -133,7 +222,7 @@ function App() {
             <button className={lang === 'de' ? 'active' : ''} onClick={() => setLang('de')}>DE</button>
             <button className={lang === 'en' ? 'active' : ''} onClick={() => setLang('en')}>EN</button>
           </div>
-          <a className="btn btn-small btn-light" href="https://demo.simplyai.at" target="_blank" rel="noreferrer">{t.demo}</a>
+          <Link className="btn btn-small btn-light" to="/demo">{t.demo}</Link>
         </div>
       </header>
 
@@ -151,21 +240,13 @@ function App() {
             <h1>{t.heroTitleA}<br /><span>{t.heroTitleB}</span></h1>
             <p>{t.heroText}</p>
             <div className="hero-buttons">
-              <a className="btn btn-primary" href="https://demo.simplyai.at" target="_blank" rel="noreferrer">{t.heroPrimary}<ArrowRight size={18} /></a>
+              <Link className="btn btn-primary" to="/demo">{t.heroPrimary}<ArrowRight size={18} /></Link>
               <a className="btn btn-ghost" href="#contact">{t.heroSecondary}</a>
             </div>
           </div>
 
           <div className="hero-visual" aria-label="AI Concierge conversation preview">
-            <div className="phone-card">
-              <div className="phone-top"><Bot size={18} /><span>AI Concierge</span><span className="online-dot" /></div>
-              <div className="chat-space">
-                <div className="message guest">What time is breakfast?</div>
-                <div className="message ai">Breakfast is served from 07:00–10:30. Would you like me to reserve a table?</div>
-                <div className="quick-row"><span>Restaurant</span><span>Spa</span><span>Room service</span></div>
-                <div className="typing"><i /><i /><i /></div>
-              </div>
-            </div>
+            <AiConciergeChat lang={lang} />
             <div className="float-chip chip-1"><Wifi size={16} /> Wi-Fi</div>
             <div className="float-chip chip-2"><UtensilsCrossed size={16} /> Room Service</div>
             <div className="float-chip chip-3"><BedDouble size={16} /> Stay</div>
@@ -263,7 +344,7 @@ function App() {
             <p>{t.ctaText}</p>
           </div>
           <div className="cta-actions">
-            <a className="btn btn-primary" href="https://demo.simplyai.at" target="_blank" rel="noreferrer">{t.heroPrimary}<ArrowRight size={18} /></a>
+            <Link className="btn btn-primary" to="/demo">{t.heroPrimary}<ArrowRight size={18} /></Link>
             <a className="contact-row" href="tel:+4368120658347"><Phone size={18} />{t.phone}</a>
             <span className="contact-row"><Hotel size={18} />{t.address}</span>
           </div>
