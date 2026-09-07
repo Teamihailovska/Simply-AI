@@ -10,33 +10,33 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <div
-      className="flex items-center text-xs font-semibold border border-border overflow-hidden"
-      style={{ letterSpacing: '0.12em' }}
-    >
-      <button
-        type="button"
-        onClick={() => toggle('de')}
-        className={`px-3 py-1.5 transition-all duration-150 ${
-          lang === 'de'
-            ? 'bg-primary text-primary-foreground'
-            : 'text-muted-foreground hover:text-foreground'
-        }`}
-      >
-        DE
-      </button>
+<div
+  className="flex items-center gap-1 text-xs font-semibold rounded-full border border-border/60 bg-background/20 backdrop-blur-sm p-1"
+  style={{ letterSpacing: '0.12em' }}
+>
+<button
+  type="button"
+  onClick={() => toggle('de')}
+  className={`px-3 py-1.5 rounded-full transition-all duration-200 ${
+    lang === 'de'
+      ? 'bg-primary text-primary-foreground shadow-sm'
+      : 'text-muted-foreground hover:text-foreground'
+  }`}
+>
+  DE
+</button>
       <div className="w-px h-4 bg-border" />
       <button
-        type="button"
-        onClick={() => toggle('en')}
-        className={`px-3 py-1.5 transition-all duration-150 ${
-          lang === 'en'
-            ? 'bg-primary text-primary-foreground'
-            : 'text-muted-foreground hover:text-foreground'
-        }`}
-      >
-        EN
-      </button>
+  type="button"
+  onClick={() => toggle('en')}
+  className={`px-3 py-1.5 rounded-full transition-all duration-200 ${
+    lang === 'en'
+      ? 'bg-primary text-primary-foreground shadow-sm'
+      : 'text-muted-foreground hover:text-foreground'
+  }`}
+>
+  EN
+</button>
     </div>
   );
 }

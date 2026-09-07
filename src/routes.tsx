@@ -1,11 +1,12 @@
 import React from 'react';
 import type { ReactNode } from 'react';
-import HomePage from './pages/HomePage';
+import HomePage from './pages/Homepage';
 import LeistungenPage from './pages/LeistungenPage';
 import ProjektePage from './pages/ProjektePage';
 import WorkshopsPage from './pages/WorkshopsPage';
 import UeberUnsPage from './pages/UeberUnsPage';
 import LegalPage from './pages/LegalPage';
+import ErstgespraechPage from './pages/ErstgespraechPage';
 
 export interface RouteConfig {
   name: string;
@@ -21,6 +22,8 @@ export const routes: RouteConfig[] = [
   { name: 'Projekte', path: '/projekte', element: <ProjektePage />, public: true },
   { name: 'Workshops', path: '/workshops', element: <WorkshopsPage />, public: true },
   { name: 'Über uns', path: '/ueber-uns', element: <UeberUnsPage />, public: true },
+  { name: 'Erstgespräch', path: '/erstgespraech', element: <ErstgespraechPage />, public: true,
+},
   {
     name: 'AGB',
     path: '/agb',

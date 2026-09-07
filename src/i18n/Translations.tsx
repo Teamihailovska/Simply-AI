@@ -8,6 +8,7 @@ export interface Translations {
     about: string;
     cta: string;
   };
+
   hero: {
     eyebrow: string;
     headline1: string;
@@ -17,12 +18,14 @@ export interface Translations {
     ctaPrimary: string;
     ctaSecondary: string;
   };
+
   services: {
     sectionLabel: string;
     heading: string;
     sub: string;
     items: { number: string; title: string; desc: string }[];
   };
+
   trust: {
     sectionLabel: string;
     heading: string;
@@ -32,18 +35,26 @@ export interface Translations {
     clientList: string[];
     partnerList: string[];
   };
+
   projects: {
     sectionLabel: string;
     heading: string;
     sub: string;
-    items: { number: string; title: string; category: string; desc: string }[];
+    items: {
+      number: string;
+      title: string;
+      category: string;
+      desc: string;
+    }[];
   };
+
   process: {
     sectionLabel: string;
     heading: string;
     sub: string;
     steps: { number: string; title: string; desc: string }[];
   };
+
   workshops: {
     sectionLabel: string;
     heading: string;
@@ -52,11 +63,13 @@ export interface Translations {
     features: string[];
     cta: string;
   };
+
   finalCta: {
     heading: string;
     sub: string;
     cta: string;
   };
+
   contact: {
     sectionLabel: string;
     heading: string;
@@ -72,6 +85,18 @@ export interface Translations {
     successDesc: string;
     errorDesc: string;
   };
+
+  erstgespraechPage: {
+    sectionLabel: string;
+    heading: string;
+    headingHighlight: string;
+    sub: string;
+    benefits: string[];
+    concern: string;
+    optional: string;
+    submit: string;
+  };
+
   footer: {
     tagline: string;
     company: string;
@@ -84,23 +109,42 @@ export interface Translations {
     copyright: string;
     location: string;
   };
+
   // Sub-page content
   leistungenPage: {
     heading: string;
     sub: string;
-    items: { title: string; desc: string; details: string[] }[];
+    items: {
+      title: string;
+      desc: string;
+      details: string[];
+    }[];
   };
+
   projektePageContent: {
     heading: string;
     sub: string;
-    items: { number: string; title: string; category: string; desc: string; outcome: string }[];
+    items: {
+      number: string;
+      title: string;
+      category: string;
+      desc: string;
+      outcome: string;
+    }[];
   };
+
   workshopsPageContent: {
     heading: string;
     sub: string;
-    formats: { title: string; desc: string; duration: string; audience: string }[];
+    formats: {
+      title: string;
+      desc: string;
+      duration: string;
+      audience: string;
+    }[];
     contactCta: string;
   };
+
   uberUns: {
     heading: string;
     sub: string;
@@ -111,6 +155,7 @@ export interface Translations {
     locationLabel: string;
     location: string;
   };
+
   legal: {
     placeholderNote: string;
     agbHeading: string;
@@ -128,6 +173,7 @@ const de: Translations = {
     about: 'Über uns',
     cta: 'Erstgespräch',
   },
+
   hero: {
     eyebrow: 'Spezialisiert auf Bau & Immobilien',
     headline1: 'Your ',
@@ -137,6 +183,7 @@ const de: Translations = {
     ctaPrimary: 'Kostenloses Erstgespräch',
     ctaSecondary: 'Leistungen ansehen',
   },
+
   services: {
     sectionLabel: 'FIG 1.1 — LEISTUNGEN',
     heading: 'Was wir für Sie bauen',
@@ -169,6 +216,7 @@ const de: Translations = {
       },
     ],
   },
+
   trust: {
     sectionLabel: 'FIG 1.2 — REFERENZEN',
     heading: 'Vertrauen in KI — gemeinsam aufgebaut',
@@ -178,6 +226,7 @@ const de: Translations = {
     clientList: ['Kostmann', 'Cosuno', 'Duramea', 'Sophora', 'BWI'],
     partnerList: ['FFG', 'SFG', 'Science Park Graz'],
   },
+
   projects: {
     sectionLabel: 'FIG 1.3 — PROJEKTE',
     heading: 'KI-Projekte aus der Praxis',
@@ -203,17 +252,35 @@ const de: Translations = {
       },
     ],
   },
+
   process: {
     sectionLabel: 'FIG 1.4 — VORGEHEN',
     heading: 'So arbeiten wir',
     sub: 'Strukturiert, transparent und auf Ihre Ziele ausgerichtet.',
     steps: [
-      { number: '01', title: 'Analyse', desc: 'Verstehen Ihrer Prozesse, Daten und Ziele.' },
-      { number: '02', title: 'Konzept', desc: 'Den Anwendungsfall mit dem größten Hebel definieren.' },
-      { number: '03', title: 'Entwicklung', desc: 'Aufbau und Training Ihrer individuellen KI-Lösung.' },
-      { number: '04', title: 'Integration', desc: 'Nahtlose Einbindung in Ihre Systeme, inklusive Betreuung.' },
+      {
+        number: '01',
+        title: 'Analyse',
+        desc: 'Verstehen Ihrer Prozesse, Daten und Ziele.',
+      },
+      {
+        number: '02',
+        title: 'Konzept',
+        desc: 'Den Anwendungsfall mit dem größten Hebel definieren.',
+      },
+      {
+        number: '03',
+        title: 'Entwicklung',
+        desc: 'Aufbau und Training Ihrer individuellen KI-Lösung.',
+      },
+      {
+        number: '04',
+        title: 'Integration',
+        desc: 'Nahtlose Einbindung in Ihre Systeme, inklusive Betreuung.',
+      },
     ],
   },
+
   workshops: {
     sectionLabel: 'FIG 1.5 — WORKSHOPS',
     heading: 'KI verstehen. KI anwenden.',
@@ -227,11 +294,13 @@ const de: Translations = {
     ],
     cta: 'Workshop anfragen',
   },
+
   finalCta: {
     heading: 'Bereit, die Zukunft mit KI zu gestalten?',
     sub: 'Ob Frage, Idee oder Projekt – wir sind hier, um zu helfen.',
     cta: 'Kostenloses Erstgespräch',
   },
+
   contact: {
     sectionLabel: 'FIG 1.6 — KONTAKT',
     heading: 'Sprechen wir.',
@@ -247,6 +316,22 @@ const de: Translations = {
     successDesc: 'Vielen Dank! Wir melden uns in Kürze bei Ihnen.',
     errorDesc: 'Leider ist etwas schiefgelaufen. Bitte versuchen Sie es später erneut.',
   },
+
+  erstgespraechPage: {
+    sectionLabel: 'KOSTENLOS & UNVERBINDLICH',
+    heading: 'Kostenloses',
+    headingHighlight: 'Erstgespräch',
+    sub: 'Erzählen Sie uns von Ihrer Idee. Wir melden uns zeitnah und beraten Sie unverbindlich zu individuellen KI-Lösungen.',
+    benefits: [
+      'Unverbindlich und kostenlos',
+      'Konkrete Einschätzung für Ihren Anwendungsfall',
+      'Direkter Draht zum Gründerteam',
+    ],
+    concern: 'Ihre Idee / Ihr Anliegen',
+    optional: '(optional)',
+    submit: 'Erstgespräch anfragen',
+  },
+
   footer: {
     tagline: 'Individuelle KI-Lösungen für Bau & Immobilien.',
     company: 'Unternehmen',
@@ -259,6 +344,7 @@ const de: Translations = {
     copyright: '© 2026 SimplyAI GmbH',
     location: 'Graz, Österreich',
   },
+
   leistungenPage: {
     heading: 'Unsere Leistungen',
     sub: 'KI-Lösungen, die auf Ihre Branche, Ihre Daten und Ihre Ziele zugeschnitten sind.',
@@ -266,30 +352,56 @@ const de: Translations = {
       {
         title: 'Prozessoptimierung durch KI-Agenten',
         desc: 'Intelligente Automatisierung wiederkehrender Prozesse durch autonome KI-Agenten.',
-        details: ['Dokumentenverarbeitung', 'Workflow-Automatisierung', 'E-Mail-Routing & Priorisierung', 'Autonome Reporting-Agenten'],
+        details: [
+          'Dokumentenverarbeitung',
+          'Workflow-Automatisierung',
+          'E-Mail-Routing & Priorisierung',
+          'Autonome Reporting-Agenten',
+        ],
       },
       {
         title: 'Maßgeschneiderte KI-Modelle',
         desc: 'Individuelle Machine-Learning-Modelle, trainiert auf Ihre spezifischen Daten und Anforderungen.',
-        details: ['Klassifikationsmodelle', 'Regressionsanalysen', 'Anomalieerkennung', 'Empfehlungssysteme'],
+        details: [
+          'Klassifikationsmodelle',
+          'Regressionsanalysen',
+          'Anomalieerkennung',
+          'Empfehlungssysteme',
+        ],
       },
       {
         title: 'Prognosemodelle',
         desc: 'Datenbasierte Vorhersagemodelle für präzise Planungsgrundlagen.',
-        details: ['Baupreisvorhersage', 'Nachfrageprognosen', 'Ressourcenplanung', 'Marktentwicklungsmodelle'],
+        details: [
+          'Baupreisvorhersage',
+          'Nachfrageprognosen',
+          'Ressourcenplanung',
+          'Marktentwicklungsmodelle',
+        ],
       },
       {
         title: 'RAG-Wissensdatenbank',
         desc: 'Retrieval-Augmented Generation — Ihre Dokumente werden zur intelligenten Wissensbasis.',
-        details: ['Interne Dokumentensuche', 'Kundenservice-KI', 'Technische Dokumentation', 'Compliance & Richtlinien'],
+        details: [
+          'Interne Dokumentensuche',
+          'Kundenservice-KI',
+          'Technische Dokumentation',
+          'Compliance & Richtlinien',
+        ],
       },
       {
         title: 'Datenanalyse',
         desc: 'Vom Rohdaten-Chaos zum strategischen Insight.',
-        details: ['Datenaufbereitung & Bereinigung', 'Exploratory Data Analysis', 'Dashboards & Visualisierungen', 'Strategische Empfehlungen'],
+        details: [
+          'Datenaufbereitung & Bereinigung',
+          'Exploratory Data Analysis',
+          'Dashboards & Visualisierungen',
+          'Strategische Empfehlungen',
+        ],
       },
     ],
   },
+
   projektePageContent: {
     heading: 'Unsere Projekte',
     sub: 'Reale KI-Anwendungen, die messbaren Mehrwert geschaffen haben.',
@@ -317,6 +429,7 @@ const de: Translations = {
       },
     ],
   },
+
   workshopsPageContent: {
     heading: 'Workshops',
     sub: 'KI-Bildung, die in der Praxis wirkt.',
@@ -342,18 +455,23 @@ const de: Translations = {
     ],
     contactCta: 'Workshop anfragen',
   },
+
   uberUns: {
     heading: 'Über SimplyAI',
     sub: 'Wir machen KI einfach — und wirkungsvoll.',
     missionLabel: 'MISSION',
-    mission: 'SimplyAI macht künstliche Intelligenz für Unternehmen greifbar, nutzbar und wirkungsvoll — ohne unnötige Komplexität. Wir glauben, dass KI dann ihren größten Mehrwert entfaltet, wenn sie einfach zu verstehen und einfach einzusetzen ist.',
+    mission:
+      'SimplyAI macht künstliche Intelligenz für Unternehmen greifbar, nutzbar und wirkungsvoll — ohne unnötige Komplexität. Wir glauben, dass KI dann ihren größten Mehrwert entfaltet, wenn sie einfach zu verstehen und einfach einzusetzen ist.',
     focusLabel: 'FOKUS',
-    focus: 'Spezialisiert auf die Bau- und Immobilienbranche bringen wir tiefes Branchenverständnis mit modernster KI-Technologie zusammen.',
+    focus:
+      'Spezialisiert auf die Bau- und Immobilienbranche bringen wir tiefes Branchenverständnis mit modernster KI-Technologie zusammen.',
     locationLabel: 'STANDORT',
     location: 'Graz, Österreich',
   },
+
   legal: {
-    placeholderNote: 'Dieser Inhalt wird vom Kunden bereitgestellt. Platzhalter bis zur finalen Freigabe.',
+    placeholderNote:
+      'Dieser Inhalt wird vom Kunden bereitgestellt. Platzhalter bis zur finalen Freigabe.',
     agbHeading: 'Allgemeine Geschäftsbedingungen',
     impressumHeading: 'Impressum',
     datenschutzHeading: 'Datenschutzerklärung',
@@ -369,6 +487,7 @@ const en: Translations = {
     about: 'About',
     cta: 'Free Consultation',
   },
+
   hero: {
     eyebrow: 'Specialized in Construction & Real Estate',
     headline1: 'Your ',
@@ -378,6 +497,7 @@ const en: Translations = {
     ctaPrimary: 'Free Initial Consultation',
     ctaSecondary: 'View Services',
   },
+
   services: {
     sectionLabel: 'FIG 1.1 — SERVICES',
     heading: 'What we build for you',
@@ -410,6 +530,7 @@ const en: Translations = {
       },
     ],
   },
+
   trust: {
     sectionLabel: 'FIG 1.2 — REFERENCES',
     heading: 'Trust in AI — built together',
@@ -419,6 +540,7 @@ const en: Translations = {
     clientList: ['Kostmann', 'Cosuno', 'Duramea', 'Sophora', 'BWI'],
     partnerList: ['FFG', 'SFG', 'Science Park Graz'],
   },
+
   projects: {
     sectionLabel: 'FIG 1.3 — PROJECTS',
     heading: 'AI Projects in Practice',
@@ -444,17 +566,35 @@ const en: Translations = {
       },
     ],
   },
+
   process: {
     sectionLabel: 'FIG 1.4 — PROCESS',
     heading: 'How we work',
     sub: 'Structured, transparent and aligned to your goals.',
     steps: [
-      { number: '01', title: 'Analysis', desc: 'Understanding your processes, data and objectives.' },
-      { number: '02', title: 'Concept', desc: 'Defining the use case with the greatest leverage.' },
-      { number: '03', title: 'Development', desc: 'Building and training your individual AI solution.' },
-      { number: '04', title: 'Integration', desc: 'Seamless integration into your systems, including ongoing support.' },
+      {
+        number: '01',
+        title: 'Analysis',
+        desc: 'Understanding your processes, data and objectives.',
+      },
+      {
+        number: '02',
+        title: 'Concept',
+        desc: 'Defining the use case with the greatest leverage.',
+      },
+      {
+        number: '03',
+        title: 'Development',
+        desc: 'Building and training your individual AI solution.',
+      },
+      {
+        number: '04',
+        title: 'Integration',
+        desc: 'Seamless integration into your systems, including ongoing support.',
+      },
     ],
   },
+
   workshops: {
     sectionLabel: 'FIG 1.5 — WORKSHOPS',
     heading: 'Understand AI. Apply AI.',
@@ -468,11 +608,13 @@ const en: Translations = {
     ],
     cta: 'Request Workshop',
   },
+
   finalCta: {
     heading: 'Ready to shape the future with AI?',
     sub: 'Whether a question, idea or project — we are here to help.',
     cta: 'Free Initial Consultation',
   },
+
   contact: {
     sectionLabel: 'FIG 1.6 — CONTACT',
     heading: "Let's talk.",
@@ -488,6 +630,22 @@ const en: Translations = {
     successDesc: 'Thank you! We will get back to you shortly.',
     errorDesc: 'Something went wrong. Please try again later.',
   },
+
+  erstgespraechPage: {
+    sectionLabel: 'FREE & NO OBLIGATION',
+    heading: 'Free Initial',
+    headingHighlight: 'Consultation',
+    sub: 'Tell us about your idea. We will get back to you shortly and provide an initial, no-obligation consultation for individual AI solutions.',
+    benefits: [
+      'Free and without obligation',
+      'Concrete assessment for your use case',
+      'Direct contact with the founding team',
+    ],
+    concern: 'Your Idea / Your Request',
+    optional: '(optional)',
+    submit: 'Request Initial Consultation',
+  },
+
   footer: {
     tagline: 'Custom AI solutions for Construction & Real Estate.',
     company: 'Company',
@@ -500,6 +658,7 @@ const en: Translations = {
     copyright: '© 2026 SimplyAI GmbH',
     location: 'Graz, Austria',
   },
+
   leistungenPage: {
     heading: 'Our Services',
     sub: 'AI solutions tailored to your industry, your data and your goals.',
@@ -507,30 +666,56 @@ const en: Translations = {
       {
         title: 'Process Optimization via AI Agents',
         desc: 'Intelligent automation of recurring processes through autonomous AI agents.',
-        details: ['Document processing', 'Workflow automation', 'Email routing & prioritization', 'Autonomous reporting agents'],
+        details: [
+          'Document processing',
+          'Workflow automation',
+          'Email routing & prioritization',
+          'Autonomous reporting agents',
+        ],
       },
       {
         title: 'Custom AI Models',
         desc: 'Individual machine learning models trained on your specific data and requirements.',
-        details: ['Classification models', 'Regression analysis', 'Anomaly detection', 'Recommendation systems'],
+        details: [
+          'Classification models',
+          'Regression analysis',
+          'Anomaly detection',
+          'Recommendation systems',
+        ],
       },
       {
         title: 'Forecasting Models',
         desc: 'Data-driven predictive models for precise planning.',
-        details: ['Construction price prediction', 'Demand forecasting', 'Resource planning', 'Market development models'],
+        details: [
+          'Construction price prediction',
+          'Demand forecasting',
+          'Resource planning',
+          'Market development models',
+        ],
       },
       {
         title: 'RAG Knowledge Base',
         desc: 'Retrieval-Augmented Generation — your documents become an intelligent knowledge base.',
-        details: ['Internal document search', 'Customer service AI', 'Technical documentation', 'Compliance & guidelines'],
+        details: [
+          'Internal document search',
+          'Customer service AI',
+          'Technical documentation',
+          'Compliance & guidelines',
+        ],
       },
       {
         title: 'Data Analysis',
         desc: 'From raw data chaos to strategic insight.',
-        details: ['Data preparation & cleaning', 'Exploratory data analysis', 'Dashboards & visualizations', 'Strategic recommendations'],
+        details: [
+          'Data preparation & cleaning',
+          'Exploratory data analysis',
+          'Dashboards & visualizations',
+          'Strategic recommendations',
+        ],
       },
     ],
   },
+
   projektePageContent: {
     heading: 'Our Projects',
     sub: 'Real-world AI applications that have created measurable value.',
@@ -540,24 +725,28 @@ const en: Translations = {
         title: 'Construction Price Prediction',
         category: 'Forecasting Models',
         desc: 'A machine learning model forecasts construction prices based on historical data, market indicators, and regional factors.',
-        outcome: 'Significantly improved cost estimates and planning certainty for construction projects.',
+        outcome:
+          'Significantly improved cost estimates and planning certainty for construction projects.',
       },
       {
         number: '02',
         title: 'AI-Assisted Secretariat',
         category: 'Process Automation',
         desc: 'Automated document processing, scheduling and email routing through an AI agent.',
-        outcome: 'Significant reduction in manual routine tasks and increased office efficiency.',
+        outcome:
+          'Significant reduction in manual routine tasks and increased office efficiency.',
       },
       {
         number: '03',
         title: 'AI Agent with Knowledge Base',
         category: 'RAG / Customer Service & Support',
         desc: 'A RAG-based AI agent enables support teams to instantly generate precise answers from internal documents.',
-        outcome: 'Shorter response times and more consistent quality in customer support.',
+        outcome:
+          'Shorter response times and more consistent quality in customer support.',
       },
     ],
   },
+
   workshopsPageContent: {
     heading: 'Workshops',
     sub: 'AI education that works in practice.',
@@ -583,18 +772,23 @@ const en: Translations = {
     ],
     contactCta: 'Request Workshop',
   },
+
   uberUns: {
     heading: 'About SimplyAI',
     sub: 'We make AI simple — and impactful.',
     missionLabel: 'MISSION',
-    mission: 'SimplyAI makes artificial intelligence tangible, usable and impactful for companies — without unnecessary complexity. We believe AI creates its greatest value when it is simple to understand and simple to deploy.',
+    mission:
+      'SimplyAI makes artificial intelligence tangible, usable and impactful for companies — without unnecessary complexity. We believe AI creates its greatest value when it is simple to understand and simple to deploy.',
     focusLabel: 'FOCUS',
-    focus: 'Specialized in the construction and real estate sector, we combine deep industry knowledge with state-of-the-art AI technology.',
+    focus:
+      'Specialized in the construction and real estate sector, we combine deep industry knowledge with state-of-the-art AI technology.',
     locationLabel: 'LOCATION',
     location: 'Graz, Austria',
   },
+
   legal: {
-    placeholderNote: 'This content will be provided by the client. Placeholder until final approval.',
+    placeholderNote:
+      'This content will be provided by the client. Placeholder until final approval.',
     agbHeading: 'Terms & Conditions',
     impressumHeading: 'Imprint',
     datenschutzHeading: 'Privacy Policy',

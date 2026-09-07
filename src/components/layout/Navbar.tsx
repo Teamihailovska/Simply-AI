@@ -31,27 +31,23 @@ export default function Navbar() {
 
   return (
     <>
-      <header
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-        style={{
-          backgroundColor: scrolled
-            ? 'hsl(218 45% 7% / 0.97)'
-            : 'hsl(218 45% 7% / 0.85)',
-          backdropFilter: 'blur(12px)',
-          borderBottom: scrolled ? '1px solid hsl(218 30% 20%)' : '1px solid transparent',
-        }}
-      >
-        {/* Blueprint top edge marker */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-primary opacity-40" />
-
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
-          <div className="flex items-center justify-between h-16 md:h-18">
+<header
+className="navbar-glow fixed top-4 left-3 right-3 md:top-6 md:left-8 md:right-8 z-50 transition-all duration-300"  style={{
+    backgroundColor: 'transparent',
+    backdropFilter: 'blur(8px)',
+    border: '1px solid hsl(218 30% 20% / 0.6)',
+    borderRadius: '9999px',
+  }}
+>
+  
+<div className="max-w-7xl mx-auto px-4 md:px-8">
+  <div className="flex items-center justify-between h-14 md:h-18">
             {/* Logo */}
             <Link to="/" className="flex items-center shrink-0">
               <img
                 src="https://miaoda-conversation-file.s3cdn.medo.dev/user-e4bxlpfp93pc/app-e4c2ja825s75/20260901/Logo.png"
                 alt="SimplyAI"
-                className="h-7 md:h-8 w-auto"
+                className="h-6 md:h-8 w-auto"
               />
             </Link>
 
@@ -80,7 +76,7 @@ export default function Navbar() {
               <LanguageSwitcher />
               <Link
                 to="/#contact"
-                className="hidden md:inline-flex items-center px-4 py-2 text-sm font-semibold bg-primary text-primary-foreground transition-all duration-150 hover:bg-accent border border-primary/20"
+                className="hidden md:inline-flex rounded-full items-center px-4 py-2 text-sm font-semibold bg-primary text-primary-foreground transition-all duration-150 hover:bg-accent border border-primary/20"
                 style={{ letterSpacing: '0.02em' }}
               >
                 {t.nav.cta}
@@ -92,7 +88,7 @@ export default function Navbar() {
                 className="md:hidden p-2 text-foreground/70 hover:text-foreground transition-colors"
                 aria-label="Toggle menu"
               >
-                {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+                {mobileOpen ? <X size={19} /> : <Menu size={19} />}
               </button>
             </div>
           </div>
@@ -135,8 +131,7 @@ export default function Navbar() {
             <Link
               to="/#contact"
               onClick={() => setMobileOpen(false)}
-              className="mt-6 w-full flex items-center justify-center py-4 bg-primary text-primary-foreground font-semibold text-base"
-            >
+className="mt-6 w-full flex items-center justify-center py-4 bg-primary text-primary-foreground font-semibold text-base rounded-lg"            >
               {t.nav.cta}
             </Link>
           </nav>
