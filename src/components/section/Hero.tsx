@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useLang } from '@/i18n/LanguageContext';
 import { ArrowRight, ChevronDown } from 'lucide-react';
+import background from "@/images/background.png";
 
 interface Node {
   x: number;
@@ -575,8 +576,12 @@ export default function Hero() {
 
   return (
     <section
-      className="relative min-h-screen flex flex-col overflow-hidden"
-      style={{ background: 'var(--gradient-hero)' }}
+      className="relative min-h-screen flex flex-col overflow-hidden bg-cover bg-center"
+      style={{
+        backgroundImage: `url(${background})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
     >
       {/* Grid */}
       <div
