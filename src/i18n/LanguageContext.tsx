@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from 'react';
 import type { ReactNode } from 'react';
-import { translations } from './translations';
-import type { Lang, Translations } from './translations';
+import { translations } from './Translations';
+import type { Lang, Translations } from './Translations';
 
 interface LanguageContextValue {
   lang: Lang;
