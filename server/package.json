@@ -1,0 +1,12 @@
+{
+  "name": "simplyai-concierge-server",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "dependencies": {
+    "@google/genai": "^1.0.0",
+    "@supabase/supabase-js": "^2.116.0",
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.2"
+  }
+}

@@ -4,6 +4,7 @@ import IntersectObserver from '@/components/common/IntersectObserver';
 import { Toaster } from '@/components/ui/sonner';
 import { LanguageProvider } from '@/i18n/LanguageContext';
 import { routes } from './routes';
+import AdminPage from './pages/admin/AdminPage';
 
 const App: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ const App: React.FC = () => {
       <Router>
         <IntersectObserver />
         <Routes>
+          <Route path="/admin" element={<AdminPage />} />
           {routes.map((route, index) => (
             <Route key={index} path={route.path} element={route.element} />
           ))}
